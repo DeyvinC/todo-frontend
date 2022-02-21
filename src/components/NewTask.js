@@ -5,6 +5,9 @@ import { Input } from 'antd'
 export default function NewTask({ setTasks }) {
     const [newTask, setNewTask] = useState('');
     const handleButtonSubmit = () => {
+        if(newTask.trim() === ''){  //if the new task is empty
+            return // dont do anything
+        }
         const taskObject = {
             task: newTask,
         }
@@ -18,6 +21,7 @@ export default function NewTask({ setTasks }) {
             body: JSON.stringify(taskObject),
         })// cool, we added a new task, now lets update the list
             .then(() => {
+                setNewTask('')
                 fetch('https://much-todo-dc.uc.r.appspot.com/tasks')
                 .then(response => response.json())
                 .then(data => setTasks(data))
@@ -28,18 +32,17 @@ export default function NewTask({ setTasks }) {
     const handleInputText = (e) => {
         setNewTask(e.target.value)
     }
-
-    console.log('new task state here', newTask)
-
     return (
-        <Input.Group compact>
-            <Input
-                placeholder='Enter task here'
-                onChange={e => handleInputText(e)} 
-                style={{width: 'calc(100% - 100px)'}}/>
-            <button onClick={handleButtonSubmit}>
-                Send new task to api</button>
-        </Input.Group>
+    
+        <Input.Search
+            placeholder='Enter task here' 
+            size='large'
+            enterButton='Add Task'
+            onSearch= {handleButtonSubmit}
+            value={newTask}
+            onChange={ handleInputText} 
+        />
+      
     )
 }
 //<Button type='primary' size='100'>Add</Button>

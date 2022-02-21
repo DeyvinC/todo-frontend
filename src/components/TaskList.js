@@ -13,8 +13,9 @@ export default function TaskList({ tasks, setTasks }) {
     return (
         <List 
         bordered
+        size='large'
         dataSource= {tasks}
-        renderItem= {item => <Task item = {item} />}
+        renderItem= {item => <Task item={item}/>}
         />
     )
 }
