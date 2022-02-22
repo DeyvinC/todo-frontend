@@ -13,3 +13,26 @@
   color: white;
 }
 
+.Content {
+  background-image: url(background.jpg);
+  padding: 20px 200px; 
+  margin-top: 64;
+
+}
+
+.Header {
+  background-color: rgb(209, 49, 84);
+  position: 'fixed';
+  z-index: 10;
+  width: '100%';
+  color: black;
+  font-size: 50px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  text-align: center;
+}
+
+.Footer {
+  background-color: rgb(27, 27, 27);
+  color: white;
+  text-align: center;
+}

@@ -1,16 +1,17 @@
-import { Layout, Menu } from 'antd';
+import { Layout } from 'antd';
 import Main from "./components/Main";
+import "./App.css"
 
 function App() {
   return (
     <Layout>
-      <Layout.Header style={{ position: 'fixed', zIndex: 10, width: '100%', color: 'white'}}>
-        Much Todo
+      <Layout.Header className='Header'>
+        To-do List
     </Layout.Header>
-    <Layout.Content style={{padding: '0 100px', marginTop: 64}}>
+    <Layout.Content className='Content'>
     <Main />
     </Layout.Content>
-    <Layout.Footer> &copy; 2022, Boca Code </Layout.Footer>
+    <Layout.Footer className='Footer'> &copy; 2022, Boca Code </Layout.Footer>
     </Layout>
   );
 }
