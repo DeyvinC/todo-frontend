@@ -11,7 +11,6 @@ export default function NewTask({ setTasks }) {
         const taskObject = {
             task: newTask,
         }
-        console.log('sending to api')
         /*first thing it takes is the address of the api */
         fetch('https://much-todo-dc.uc.r.appspot.com/tasks', {
             method: 'POST',
